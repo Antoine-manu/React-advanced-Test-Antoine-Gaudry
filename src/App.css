@@ -1,0 +1,97 @@
+.input{
+  padding: 4px;
+  border: solid 2px #F7F7F7;
+  border-radius: 8px;
+  display: flex;
+  width: 100%;
+  position: relative;
+  flex-direction: row;
+}
+
+.input-container{
+  position: relative;
+  width: 300px;
+}
+
+
+.input>input{
+  width: 100%;
+  background-color: transparent;
+}
+
+.input>input, .input>input:focus, .input>input:focus-visible{
+  border: none !important;
+  outline: none;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+  margin-top: 0;
+}
+
+.container > div{
+  display: flex;
+  flex-direction: column;
+}
+
+.input-list{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 110%;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.input-list-child{
+  background-color: #35424e;
+  margin: 2px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.input-list-child:hover{
+  background-color: #35424ecc;
+}
+
+.d-none{
+  display: none;
+}
+
+.selected{
+  background-color: blue;
+  color: white;
+}
+
+.selected:hover{
+  background-color: lightblue;
+}
+
+.tag{
+  padding: 4px;
+  border-radius: 8px;
+  font-size: 12px;
+  background-color: blue;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tag-close{
+  margin-left: 2px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.tag-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
