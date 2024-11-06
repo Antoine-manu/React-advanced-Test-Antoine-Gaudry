@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import InputList from "./InputList";
 import { useState, useRef, useEffect } from "react";
 
-export default function InputCustom({data, multiple = false, template = null}){
+export default function InputCustom({data, multiple = false, template = null, placeholder = false}){
     const [datas, setDatas] = useState(data)
     const [visible, setVisible] = useState(false)
+    const [placehold, setPlacehold] = useState('')
     const [selectedItems, setSelectedItems] = useState([])
     const [selectedOptions, setSelectedOptions] = useState(false)
     const [inputValue, setInputValue] = useState("")
@@ -56,11 +57,22 @@ export default function InputCustom({data, multiple = false, template = null}){
     useEffect(() => {
         setDatas(data)
     }, [data]);
+
+    useEffect(() => {
+        if(datas.length>0){
+            setPlacehold(datas[0].label)
+        }
+    }, [datas]);
     
     return(
         <div className="input-container" ref={listRef}>
             <div className="input">
                 <input type="text" value={inputValue} onChange={(e) => handleOnChange(e.target.value)} onClick={() => setVisible(true)}/>
+                {placeholder === true ?
+                    <div className="placeholder">
+                        {placehold}
+                    </div>
+                : ''}
                 <FontAwesomeIcon icon={faSearch}/>
             </div>
             {multiple === true ? 
@@ -73,7 +85,11 @@ export default function InputCustom({data, multiple = false, template = null}){
                     ))}
                 </div> 
             :''}
-            <InputList template={template} data={datas} visible={visible} selected={selected} multiple={multiple} selectedItems={selectedItems}/>
+            {placeholder === false ? 
+                <InputList template={template} data={datas} visible={visible} selected={selected} multiple={multiple} selectedItems={selectedItems}/>
+            :
+                ""
+            }
         </div>
     )
 }

@@ -108,7 +108,7 @@ function App() {
       </div>
       <div>
         <p>8. Autocomplete Product simple avec suggestion au lieu d'une liste</p>
-        <InputCustom/>
+        <InputCustom data={products} placeholder={true}/>
       </div>
     </div>
   )
